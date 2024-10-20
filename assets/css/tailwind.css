@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+        @apply
+            scroll-smooth
+            scroll-mt-32
+        ;
+
+        &::-webkit-scrollbar {
+            @apply size-2;
+        }
+
+        &::-webkit-scrollbar-track {
+            @apply bg-inherit;
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            @apply rounded-full hover:!bg-primary;
+        }
+        
+        &:not(.scrollbar-white, scrollbar-black)::-webkit-scrollbar-thumb {
+            @apply bg-contrast/50;
+            scrollbar-color: theme(colors.contrast) initial;
+        }
+    
+        &.scrollbar-white::-webkit-scrollbar-thumb {
+            @apply bg-white/50;
+            scrollbar-color: theme(colors.white.DEFAULT) initial;
+        }
+    
+        &.scrollbar-black::-webkit-scrollbar-thumb {
+            @apply bg-black/50;
+            scrollbar-color: theme(colors.black.DEFAULT) initial;
+        }
+
+        &::selection {
+            @apply text-black bg-primary
+        }
+    }
+
+    html,
+    body {
+        @apply
+            scroll-smooth
+            scroll-pt-32
+        ;
+    }
+
+    body {
+        @apply
+            bg-background
+            text-contrast
+            text-base
+            text-left
+            antialiased
+            transition-colors
+            duration-500
+        ;
+    }
+
+    h1 {
+        @apply sm:text-4xl
+    }
+
+    h1, h2 {
+        @apply text-3xl;
+    }
+
+    h3 {
+        @apply text-2xl;
+    }
+
+    h4 {
+        @apply text-xl;
+    }
+
+    h5 {
+        @apply text-lg;
+    }
+
+    h6, p {
+        @apply text-base;
+    }
+
+    button,
+    a {
+        @apply select-none;
+    }
+
+    a.link {
+        @apply underline underline-offset-4 transition-all duration-300 hover:text-primary hover:text-shadow-[1px_1px_1px_#000];
+    }
+
+    button:disabled {
+        @apply opacity-60;
+    }
+
+    hr {
+        @apply border-t border-current opacity-20
+    }
+}
+
+@layer components {
+}
+
+@layer utilities {
+    .no_scrollbar::-webkit-scrollbar {
+        @apply hidden;
+    }
+
+    .no_scrollbar {
+        scrollbar-width: none;
+    }
+}
